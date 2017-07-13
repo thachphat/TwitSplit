@@ -1,3 +1,15 @@
-PODFILE CHECKSUM: e3dc07b66bb22c7b8dfa2f06a73b64f7480c5725
+PODS:
+  - TwitterCore (3.0.0)
+  - TwitterKit (3.0.3):
+    - TwitterCore (>= 3.0.0)
+
+DEPENDENCIES:
+  - TwitterKit
+
+SPEC CHECKSUMS:
+  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
+  TwitterKit: 202404be71aadd81d19f677b34579fe77d9cb67e
+
+PODFILE CHECKSUM: 1b7363839025e03c4f9eb84491878b0d2473e5f1
 
 COCOAPODS: 1.2.1
