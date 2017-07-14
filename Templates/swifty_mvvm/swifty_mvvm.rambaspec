@@ -1,0 +1,22 @@
+# Template information section
+name: "swifty_mvvm"
+summary: "MVVM module template with UIViewController playing as a View."
+author: "Phat Chiem"
+version: "1.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+# View layer
+- {name: ViewController.swift, path: Code/viewcontroller.swift.liquid}
+
+# ViewModel layer
+- {name: ViewModel.swift, path: Code/viewmodel.swift.liquid}
+
+# The declarations for test files
+test_files:
+# ViewController tests
+- {name: ViewControllerTests.swift, path: Tests/viewcontroller_tests.swift.liquid}
+
+# ViewModel tests
+- {name: ViewModelTests.swift, path: Tests/viewmodel_tests.swift.liquid}

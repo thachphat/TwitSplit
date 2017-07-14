@@ -1,0 +1,32 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+class {{ module_info.name }}ViewController: BaseViewController {
+
+
+    var viewModel: {{ prefix }}{{ module_info.name }}ViewModel!
+
+    // MARK: Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindUI()
+        setUpUI()
+    }
+
+    // MARK: - Bind UI
+    func bindUI() {
+
+    }
+
+    // MARK: - Setup UI
+    func setUpUI() {
+
+    }
+}

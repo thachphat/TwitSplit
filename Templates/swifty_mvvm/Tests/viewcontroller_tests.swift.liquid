@@ -1,0 +1,26 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import XCTest
+@testable import {{ module_info.project_targets[0] }}
+
+class {{ module_info.name }}ViewControllerTests: XCTestCase {
+
+    var controller: {{ prefix }}{{ module_info.name }}ViewController!
+
+    override func setUp() {
+        super.setUp()
+        self.controller = {{ prefix }}{{ module_info.name }}ViewController()
+    }
+
+    override func tearDown() {
+        self.controller = nil
+        super.tearDown()
+    }
+
+}
