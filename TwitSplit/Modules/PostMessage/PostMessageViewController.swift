@@ -7,46 +7,61 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+import JSQMessagesViewController
 
-class PostMessageViewController: BaseViewController {
+let MySenderId = "Phat"
+
+class PostMessageViewController: JSQMessagesViewController {
     
-    @IBOutlet weak var logOutButton: UIBarButtonItem!
+    // TODO: load message from database if exist
+    var messages = [JSQMessage]()
     
-    var viewModel = PostMessageViewModel(provider: TwitterProvider())
-    let disposeBag = DisposeBag()
+    let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+    let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.lightGray)
     
-    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindUI()
-        setUpUI()
+        self.inputToolbar?.contentView?.leftBarButtonItem = nil
+        
+        collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
+        collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
+        
+        collectionView?.collectionViewLayout.springinessEnabled = false
+        
+        senderId = MySenderId
+        senderDisplayName = senderId
+        automaticallyScrollsToMostRecentMessage = true
     }
     
-    // MARK: - Bind UI
-    func bindUI() {
-        logOutButton.rx.tap.bind(to: viewModel.logOutTapped).addDisposableTo(disposeBag)
-        
-        viewModel.logOutFinished
-            .drive(onNext: { [weak self] result in
-                switch result {
-                    
-                case .failure(let error):
-                    let alert = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
-                    self?.present(alert, animated: true, completion: nil)
-                case .success:
-                    if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                        appDelegate.showRootView()
-                    }
-                }
-            })
-            .addDisposableTo(disposeBag)
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        // TODO: splitMessage -> save image to database
+        self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: text))
+        self.finishSendingMessage(animated: true)
+        self.collectionView?.reloadData()
     }
     
-    // MARK: - Setup UI
-    func setUpUI() {
-        
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
     }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        return messages[indexPath.item].senderId == senderId ? outgoingBubble : incomingBubble
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
+        return nil
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        return nil
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        return 0
+    }
+    
 }
