@@ -6,15 +6,10 @@
 //  Copyright © 2017 Phat Chiem. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 import RxCocoa
 import TwitterKit
-
-enum LoginResult {
-    case ok
-    case failed(message: String)
-}
+import Result
 
 class LoginViewModel: BaseViewModel {
     
@@ -22,7 +17,7 @@ class LoginViewModel: BaseViewModel {
     var loginTapped = PublishSubject<Void>()
     
     // Output
-    let loginFinished: Driver<LoginResult>
+    let loginFinished: Driver<Result<Void, MyError>>
     
     fileprivate let provider: TwitterProvider
     
@@ -33,10 +28,10 @@ class LoginViewModel: BaseViewModel {
             .flatMap {
                 provider.login()
             }
-            .map({ (session) -> LoginResult in
-                return LoginResult.ok
+            .map({ (session) -> Result<Void, MyError> in
+                return Result.success()
             })
-            .asDriver(onErrorJustReturn: LoginResult.failed(message: "Something went wrong")).debug()
+            .asDriver(onErrorJustReturn: Result.failure(MyError.somethingWrong())).debug()
     }
     
 }

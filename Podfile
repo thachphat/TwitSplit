@@ -9,6 +9,7 @@ target 'TwitSplit' do
   pod 'TwitterKit'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Result'
   
 
   target 'TwitSplitTests' do

@@ -28,13 +28,13 @@ class LoginViewController: BaseViewController {
     func bindUI() {
         loginTwitterButton.rx.tap.bind(to: viewModel.loginTapped).addDisposableTo(disposeBag)
         
-        viewModel.loginFinished.drive(onNext: { [weak self] loginResult in
-            switch loginResult {
-            case .failed(let message):
-                let alert = UIAlertController(title: "Oops!", message:message, preferredStyle: .alert)
+        viewModel.loginFinished.drive(onNext: { [weak self] result in
+            switch result {
+            case .failure(let error):
+                let alert = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
                 self?.present(alert, animated: true, completion: nil)
-            case .ok:
+            case .success:
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                     appDelegate.showRootView()
                 }

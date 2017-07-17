@@ -25,4 +25,16 @@ class TwitterProvider: NSObject {
         })
     }
     
+    func log0ut() -> Observable<Bool> {
+        return PublishSubject.create({ (observer) -> Disposable in
+            let store = Twitter.sharedInstance().sessionStore
+            if let userID = store.session()?.userID {
+                store.logOutUserID(userID)
+            }
+            observer.onNext(true)
+            
+            return Disposables.create()
+        })
+    }
+    
 }
