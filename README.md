@@ -1,11 +1,9 @@
 # TwitSplit
 
 ## Screens
-- [ ] Login Twitter
 - [ ] Messages
 
 ## Features
-- [ ] Login twitter
 - [ ] Post message
 - [ ] View old messages
 - [ ] Split message if needed
