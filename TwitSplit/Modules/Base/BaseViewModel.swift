@@ -1,5 +1,5 @@
 //
-//  BaseBaseViewController.swift
+//  BaseBaseViewModel.swift
 //  TwitSplit
 //
 //  Created by Phat Chiem on 15/07/2017.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-
+class BaseViewModel {
+    
 }

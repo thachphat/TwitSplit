@@ -1,26 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Login View Controller-->
+        <scene sceneID="HTS-M9-6hJ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="S4X-ba-RXv" customClass="LoginViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="bnb-Si-Od0"/>
+                        <viewControllerLayoutGuide type="bottom" id="OMi-4O-Sl0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="fdw-wa-xf1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tP-Lf-AC4">
+                                <rect key="frame" x="115.5" y="269" width="89" height="30"/>
+                                <state key="normal" title="Login Twitter"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0tP-Lf-AC4" firstAttribute="centerX" secondItem="fdw-wa-xf1" secondAttribute="centerX" id="3Y4-Cp-Xm2"/>
+                            <constraint firstItem="0tP-Lf-AC4" firstAttribute="centerY" secondItem="fdw-wa-xf1" secondAttribute="centerY" id="7Fp-zZ-wMg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginTwitterButton" destination="0tP-Lf-AC4" id="STP-2v-j81"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWj-2V-uNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-103" y="22"/>
+        </scene>
+        <!--Post Message View Controller-->
+        <scene sceneID="BLM-1e-bn2">
+            <objects>
+                <viewController id="7WA-z3-TSZ" customClass="PostMessageViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1kv-ch-B6B"/>
+                        <viewControllerLayoutGuide type="bottom" id="T4l-1i-nL6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E3S-F2-9dJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mNa-RV-1Fz">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="71E-tZ-JKJ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logOutButton" destination="71E-tZ-JKJ" id="sz5-Ox-QXH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aIu-Qw-IZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="20.070422535211268"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kl0-h7-UZI">
+            <objects>
+                <navigationController storyboardIdentifier="PostMessageViewController" automaticallyAdjustsScrollViewInsets="NO" id="VQR-UP-092" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c74-El-jI0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7WA-z3-TSZ" kind="relationship" relationship="rootViewController" id="5SG-Gn-bdo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKL-zH-7vq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757.5" y="20.070422535211268"/>
         </scene>
     </scenes>
 </document>

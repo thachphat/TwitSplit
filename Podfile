@@ -7,6 +7,9 @@ target 'TwitSplit' do
 
   # Pods for TwitSplit
   pod 'TwitterKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  
 
   target 'TwitSplitTests' do
     inherit! :search_paths

@@ -1,15 +1,22 @@
 PODS:
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.5.0)
   - TwitterCore (3.0.0)
   - TwitterKit (3.0.3):
     - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
+  - RxCocoa
+  - RxSwift
   - TwitterKit
 
 SPEC CHECKSUMS:
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: 202404be71aadd81d19f677b34579fe77d9cb67e
 
-PODFILE CHECKSUM: 1b7363839025e03c4f9eb84491878b0d2473e5f1
+PODFILE CHECKSUM: c62904fb8a92cd50cd65bbe5cc30bf8bf305e400
 
 COCOAPODS: 1.2.1

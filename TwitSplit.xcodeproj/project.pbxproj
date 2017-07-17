@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0D8CFB91B5C685A55611B3C2 /* Pods_TwitSplitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB64D94C46C3F1609AE1272 /* Pods_TwitSplitTests.framework */; };
+		13607F5D86C4C67AC537A5BD /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D519463C18E9892D7B6704 /* PostMessageViewController.swift */; };
 		18B96AC4BEFCC54B29D53EBA /* Pods_TwitSplit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799C87294B49FA7D0E31E62B /* Pods_TwitSplit.framework */; };
 		1ADBF90A1CE7347AA3416FD4 /* Pods_TwitSplitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DA506A05CFBB0A1196BD0C /* Pods_TwitSplitUITests.framework */; };
+		2489DF47D5527FCC98EB9ED1 /* PostMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136320471ABBCE3E313A56F2 /* PostMessageViewModel.swift */; };
+		3A90BF06099570F4BA553E07 /* BaseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F942BA4380A120252E7C7A /* BaseViewModelTests.swift */; };
+		4744F4E1323CEC098B62CB25 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26591FF3E3B50EB62CCBB391 /* BaseViewModel.swift */; };
+		660A3AE41F1A4B4200F02D27 /* TwitterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660A3AE31F1A4B4200F02D27 /* TwitterProvider.swift */; };
 		6610FF071F17F0D8000082B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF061F17F0D8000082B9 /* AppDelegate.swift */; };
 		6610FF0C1F17F0D8000082B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6610FF0A1F17F0D8000082B9 /* Main.storyboard */; };
 		6610FF0E1F17F0D8000082B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6610FF0D1F17F0D8000082B9 /* Assets.xcassets */; };
@@ -17,9 +22,16 @@
 		6610FF1C1F17F0D8000082B9 /* TwitSplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF1B1F17F0D8000082B9 /* TwitSplitTests.swift */; };
 		6610FF271F17F0D8000082B9 /* TwitSplitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF261F17F0D8000082B9 /* TwitSplitUITests.swift */; };
 		6610FF3A1F17F3B2000082B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF391F17F3B2000082B9 /* Constants.swift */; };
-		6610FF3D1F17F41E000082B9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF3C1F17F41E000082B9 /* BaseViewController.swift */; };
-		6610FF3F1F17F425000082B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF3E1F17F425000082B9 /* LoginViewController.swift */; };
-		6610FF411F17F42D000082B9 /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610FF401F17F42D000082B9 /* PostMessageViewController.swift */; };
+		6647B7881F18EF3E00104CBC /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647B7871F18EF3E00104CBC /* UIStoryboard.swift */; };
+		6647B78A1F1997A100104CBC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6647B7891F1997A100104CBC /* UIViewController.swift */; };
+		9EE846763871134CD90423B9 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8F6290083337B42D04FEB8 /* LoginViewModelTests.swift */; };
+		A5865D11621309A9E4420008 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08165B286B2917CFBDA3A341 /* LoginViewModel.swift */; };
+		B2C186DC66EB6F8B7C5AEA6C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8E1509EF97ECC294AB019 /* BaseViewController.swift */; };
+		C706CBC10D491BBD70000235 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BF381C03358A6191554B5 /* LoginViewControllerTests.swift */; };
+		CC2A41B1449F69427478447F /* PostMessageViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB2842EBA34C058FE7DEE88 /* PostMessageViewModelTests.swift */; };
+		E33C647397B27B1231D79CD4 /* PostMessageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DB511BF2C6A3AE809B32A6 /* PostMessageViewControllerTests.swift */; };
+		F999B0259FA4ABCBD0038EAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A754E929360F8840B4FF23 /* LoginViewController.swift */; };
+		FED792516C1E60BF6B229C26 /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBF825B48CD4B63A764264 /* BaseViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +52,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05D519463C18E9892D7B6704 /* PostMessageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
+		08165B286B2917CFBDA3A341 /* LoginViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0DCBF825B48CD4B63A764264 /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
+		136320471ABBCE3E313A56F2 /* PostMessageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostMessageViewModel.swift; sourceTree = "<group>"; };
 		1E2925249F2F4C6D0EE98AAA /* Pods-TwitSplitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplitTests/Pods-TwitSplitTests.release.xcconfig"; sourceTree = "<group>"; };
+		26591FF3E3B50EB62CCBB391 /* BaseViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		27CE8F36A57CBC72894B6926 /* Pods-TwitSplit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplit/Pods-TwitSplit.debug.xcconfig"; sourceTree = "<group>"; };
+		2FB2842EBA34C058FE7DEE88 /* PostMessageViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostMessageViewModelTests.swift; sourceTree = "<group>"; };
 		4CB64D94C46C3F1609AE1272 /* Pods_TwitSplitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitSplitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		523BFFCE501535CE9E71DE93 /* Pods-TwitSplitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplitUITests/Pods-TwitSplitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		65DB511BF2C6A3AE809B32A6 /* PostMessageViewControllerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostMessageViewControllerTests.swift; sourceTree = "<group>"; };
+		660A3AE31F1A4B4200F02D27 /* TwitterProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterProvider.swift; sourceTree = "<group>"; };
 		6610FF031F17F0D8000082B9 /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6610FF061F17F0D8000082B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6610FF0B1F17F0D8000082B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,13 +77,17 @@
 		6610FF261F17F0D8000082B9 /* TwitSplitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitSplitUITests.swift; sourceTree = "<group>"; };
 		6610FF281F17F0D8000082B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6610FF391F17F3B2000082B9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6610FF3C1F17F41E000082B9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		6610FF3E1F17F425000082B9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		6610FF401F17F42D000082B9 /* PostMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
+		6647B7871F18EF3E00104CBC /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		6647B7891F1997A100104CBC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		70A754E929360F8840B4FF23 /* LoginViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		754BF381C03358A6191554B5 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		75F942BA4380A120252E7C7A /* BaseViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseViewModelTests.swift; sourceTree = "<group>"; };
 		799C87294B49FA7D0E31E62B /* Pods_TwitSplit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitSplit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8F6290083337B42D04FEB8 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		A2EC2B6FD6690ACDE9E20209 /* Pods-TwitSplitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplitTests/Pods-TwitSplitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0DA506A05CFBB0A1196BD0C /* Pods_TwitSplitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitSplitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D276BD35A60F64C3D209E9EE /* Pods-TwitSplit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplit/Pods-TwitSplit.release.xcconfig"; sourceTree = "<group>"; };
+		D7D8E1509EF97ECC294AB019 /* BaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F7A171BBB63C00DDBD442BE2 /* Pods-TwitSplitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitSplitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitSplitUITests/Pods-TwitSplitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		660A3AE21F1A4B3900F02D27 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				660A3AE31F1A4B4200F02D27 /* TwitterProvider.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		6610FEFA1F17F0D8000082B9 = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +152,10 @@
 		6610FF051F17F0D8000082B9 /* TwitSplit */ = {
 			isa = PBXGroup;
 			children = (
-				6610FF341F17F38B000082B9 /* Helpers */,
+				660A3AE21F1A4B3900F02D27 /* Networking */,
 				6610FF351F17F38B000082B9 /* Modules */,
+				6610FF421F17F5E5000082B9 /* Models */,
+				6610FF341F17F38B000082B9 /* Helpers */,
 				6610FF381F17F390000082B9 /* Supporting Files */,
 				6610FF0A1F17F0D8000082B9 /* Main.storyboard */,
 			);
@@ -133,6 +167,9 @@
 			children = (
 				6610FF1B1F17F0D8000082B9 /* TwitSplitTests.swift */,
 				6610FF1D1F17F0D8000082B9 /* Info.plist */,
+				E3F2903282DB13B24A140B6B /* Login */,
+				D6638ACFBCA2B554D55BD487 /* PostMessage */,
+				74B3FA7A862E7E7A93D02252 /* Base */,
 			);
 			path = TwitSplitTests;
 			sourceTree = "<group>";
@@ -150,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				6610FF391F17F3B2000082B9 /* Constants.swift */,
+				6647B7861F18EF3500104CBC /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -167,7 +205,8 @@
 		6610FF361F17F38B000082B9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6610FF3E1F17F425000082B9 /* LoginViewController.swift */,
+				70A754E929360F8840B4FF23 /* LoginViewController.swift */,
+				08165B286B2917CFBDA3A341 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -175,7 +214,8 @@
 		6610FF371F17F38B000082B9 /* PostMessage */ = {
 			isa = PBXGroup;
 			children = (
-				6610FF401F17F42D000082B9 /* PostMessageViewController.swift */,
+				05D519463C18E9892D7B6704 /* PostMessageViewController.swift */,
+				136320471ABBCE3E313A56F2 /* PostMessageViewModel.swift */,
 			);
 			path = PostMessage;
 			sourceTree = "<group>";
@@ -194,7 +234,33 @@
 		6610FF3B1F17F40D000082B9 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				6610FF3C1F17F41E000082B9 /* BaseViewController.swift */,
+				D7D8E1509EF97ECC294AB019 /* BaseViewController.swift */,
+				26591FF3E3B50EB62CCBB391 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6610FF421F17F5E5000082B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6647B7861F18EF3500104CBC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6647B7871F18EF3E00104CBC /* UIStoryboard.swift */,
+				6647B7891F1997A100104CBC /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		74B3FA7A862E7E7A93D02252 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0DCBF825B48CD4B63A764264 /* BaseViewControllerTests.swift */,
+				75F942BA4380A120252E7C7A /* BaseViewModelTests.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -207,6 +273,24 @@
 				B0DA506A05CFBB0A1196BD0C /* Pods_TwitSplitUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6638ACFBCA2B554D55BD487 /* PostMessage */ = {
+			isa = PBXGroup;
+			children = (
+				65DB511BF2C6A3AE809B32A6 /* PostMessageViewControllerTests.swift */,
+				2FB2842EBA34C058FE7DEE88 /* PostMessageViewModelTests.swift */,
+			);
+			path = PostMessage;
+			sourceTree = "<group>";
+		};
+		E3F2903282DB13B24A140B6B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				754BF381C03358A6191554B5 /* LoginViewControllerTests.swift */,
+				7F8F6290083337B42D04FEB8 /* LoginViewModelTests.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		EC1583E90A95AD24D3A194DB /* Pods */ = {
@@ -506,11 +590,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6610FF3F1F17F425000082B9 /* LoginViewController.swift in Sources */,
 				6610FF071F17F0D8000082B9 /* AppDelegate.swift in Sources */,
-				6610FF411F17F42D000082B9 /* PostMessageViewController.swift in Sources */,
 				6610FF3A1F17F3B2000082B9 /* Constants.swift in Sources */,
-				6610FF3D1F17F41E000082B9 /* BaseViewController.swift in Sources */,
+				6647B78A1F1997A100104CBC /* UIViewController.swift in Sources */,
+				6647B7881F18EF3E00104CBC /* UIStoryboard.swift in Sources */,
+				F999B0259FA4ABCBD0038EAE /* LoginViewController.swift in Sources */,
+				660A3AE41F1A4B4200F02D27 /* TwitterProvider.swift in Sources */,
+				A5865D11621309A9E4420008 /* LoginViewModel.swift in Sources */,
+				13607F5D86C4C67AC537A5BD /* PostMessageViewController.swift in Sources */,
+				2489DF47D5527FCC98EB9ED1 /* PostMessageViewModel.swift in Sources */,
+				B2C186DC66EB6F8B7C5AEA6C /* BaseViewController.swift in Sources */,
+				4744F4E1323CEC098B62CB25 /* BaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +609,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6610FF1C1F17F0D8000082B9 /* TwitSplitTests.swift in Sources */,
+				C706CBC10D491BBD70000235 /* LoginViewControllerTests.swift in Sources */,
+				9EE846763871134CD90423B9 /* LoginViewModelTests.swift in Sources */,
+				E33C647397B27B1231D79CD4 /* PostMessageViewControllerTests.swift in Sources */,
+				CC2A41B1449F69427478447F /* PostMessageViewModelTests.swift in Sources */,
+				FED792516C1E60BF6B229C26 /* BaseViewControllerTests.swift in Sources */,
+				3A90BF06099570F4BA553E07 /* BaseViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
