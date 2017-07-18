@@ -11,26 +11,16 @@ import XCTest
 
 class TwitSplitTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSplitMessageLessThanOrEqual50Characters() {
+        let oneCharacterMessage = "a"
+        let splitMessages = String.splitMessage(message: oneCharacterMessage)
+        XCTAssert(splitMessages == [oneCharacterMessage], "Split message with one character")
+        
+        let _49CharactersMessage = Array(repeatElement("a", count: 49)).joined()
+        XCTAssert(String.splitMessage(message: _49CharactersMessage) == [_49CharactersMessage], "Split message with 49 characters")
+        
+        let _50CharactersMessage = Array(repeatElement("a", count: 50)).joined()
+        XCTAssert(String.splitMessage(message: _50CharactersMessage) == [_50CharactersMessage], "Split message with 50 characters")
     }
     
 }
