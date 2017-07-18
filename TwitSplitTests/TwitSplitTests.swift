@@ -23,7 +23,7 @@ class TwitSplitTests: XCTestCase {
     func testSplitMessageGreaterThan50CharactersAndLessThanOrEqual9Splits() {
         let _51CharactersMessage = Array(repeatElement("a", count: 51)).joined()
         let firstSplitMessage = "1/2 " + Array(repeatElement("a", count: 46)).joined()
-        let secondSplitMessage = "2/2 a"
+        let secondSplitMessage = "2/2 " + Array(repeatElement("a", count: 5)).joined()
         XCTAssert(String.splitMessage(message: _51CharactersMessage) == [firstSplitMessage, secondSplitMessage], "Split message with 51 characters")
         
         let _9SplitsMessage = Array(repeatElement("a", count: 46 * 9)).joined()
