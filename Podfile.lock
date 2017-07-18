@@ -2,14 +2,22 @@ PODS:
   - JSQMessagesViewController (7.3.5):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
 
 DEPENDENCIES:
   - JSQMessagesViewController
+  - RealmSwift
 
 SPEC CHECKSUMS:
   JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
-PODFILE CHECKSUM: 447937ed2711752311cc60d3a881487b0ba51f5b
+PODFILE CHECKSUM: 19403acf431969f2e574e60ed86c853a4a196aac
 
 COCOAPODS: 1.2.1

@@ -7,6 +7,7 @@ target 'TwitSplit' do
 
   # Pods for TwitSpliti
   pod 'JSQMessagesViewController'
+  pod 'RealmSwift'
   
 
   target 'TwitSplitTests' do

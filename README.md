@@ -5,7 +5,7 @@
 
 ## Features
 - [x] Post message
-- [ ] View old messages
+- [x] View old messages
 - [x] Split message if needed
 - [x] Test split message
 

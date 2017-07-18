@@ -8,12 +8,14 @@
 
 import UIKit
 import JSQMessagesViewController
+import RealmSwift
 
 let MySenderId = "Phat"
 
 class PostMessageViewController: JSQMessagesViewController {
     
-    // TODO: load message from database if exist
+    let realm = try! Realm()
+
     var messages = [JSQMessage]()
     
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -21,6 +23,9 @@ class PostMessageViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        messages = realm.objects(Message.self).map({ JSQMessage(senderId: $0.senderId, displayName: $0.displayName, text: $0.text) })
+        
         self.inputToolbar?.contentView?.leftBarButtonItem = nil
         
         collectionView?.collectionViewLayout.incomingAvatarViewSize = .zero
@@ -36,8 +41,14 @@ class PostMessageViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let splittedMessages = String.splitMessage(message: text)
         for message in splittedMessages {
-            self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: message))
-            // TODO: save message to database
+            let myMessage = Message()
+            myMessage.senderId = senderId
+            myMessage.displayName = senderId
+            myMessage.text = message
+            try! realm.write {
+                realm.add(myMessage)
+            }
+            self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: message)!)
         }
         self.finishSendingMessage(animated: true)
         self.collectionView?.reloadData()
