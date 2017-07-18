@@ -13,6 +13,9 @@ extension String {
     static let messageMaxLength = 50
     
     static func splitMessage(message: String, result: [String] = []) -> [String] {
+        if result.count == 0 && message.characters.count <= messageMaxLength {
+            return [message]
+        }
         return [""]
     }
 }
