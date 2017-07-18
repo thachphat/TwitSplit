@@ -34,8 +34,11 @@ class PostMessageViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        // TODO: splitMessage -> save image to database
-        self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: text))
+        let splittedMessages = String.splitMessage(message: text)
+        for message in splittedMessages {
+            self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: message))
+            // TODO: save message to database
+        }
         self.finishSendingMessage(animated: true)
         self.collectionView?.reloadData()
     }
