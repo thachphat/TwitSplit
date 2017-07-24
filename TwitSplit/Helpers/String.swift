@@ -59,24 +59,28 @@ extension String {
     fileprivate static func splittedString(string: String, length: Int, maxPartsDigitCount: Int) -> [String] {
         var result = [String]()
         
-        var i = 0
-        while i < string.characters.count {
-            let startIndex = string.index(string.startIndex, offsetBy: i)
-            let splitLength = length - maxPartsDigitCount - 2 - String(result.count + 1).characters.count
-            i += splitLength
-            let distance = string.distance(from: startIndex, to: string.endIndex)
-            var endIndex: Index
-            if distance <= splitLength {
-                endIndex = string.index(startIndex, offsetBy: distance)
-                result.append(string[startIndex..<endIndex])
-                break
+        var currentMessage = ""
+        for word in string.components(separatedBy: " ") {
+            let currentIndexCharactersCount = String(result.count + 1).characters.count + maxPartsDigitCount + 2 // 1 is for " ", 1 is for "/" => + 2
+            let currentMessageCharactersCountIfAppendThisWord = currentMessage.characters.count + currentIndexCharactersCount + word.characters.count + 1 // 1 is for " "
+            if currentMessage.characters.count == 0 {
+                currentMessage = word
+            } else if currentMessageCharactersCountIfAppendThisWord <= length {
+                currentMessage += " \(word)"
+            } else {
+                result.append(currentMessage)
+                currentMessage = word
             }
-            endIndex = string.index(startIndex, offsetBy: splitLength)
-            result.append(string[startIndex..<endIndex])
         }
+        result.append(currentMessage)
         
         result = result.enumerated().map({ "\($0 + 1)/\(result.count) \($1)".trimmingCharacters(in: .whitespacesAndNewlines) })
         
-        return result
+        if result.first(where: { $0.characters.count > length }) != nil {
+            // max Parts Digit Count may vary +1 because cannot split word without white space
+            return splittedString(string: string, length: length, maxPartsDigitCount: maxPartsDigitCount + 1)
+        } else {
+            return result
+        }
     }
 }
