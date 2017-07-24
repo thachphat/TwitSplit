@@ -75,7 +75,7 @@ extension String {
             result.append(string[startIndex..<endIndex])
         }
         
-        result = result.enumerated().map({ "\($0 + 1)/\(result.count) \($1)" })
+        result = result.enumerated().map({ "\($0 + 1)/\(result.count) \($1)".trimmingCharacters(in: .whitespacesAndNewlines) })
         
         return result
     }

@@ -28,46 +28,38 @@ class TwitSplitTests: XCTestCase {
         XCTAssert(splitMessage(message: _50CharactersMessage) == [_50CharactersMessage], "Split message with 50 characters")
     }
     
-    func testSplitMessageGreaterThan50CharactersAndLessThanOrEqual9Splits() {
+    func testSplitMessageHasWordLongerThan50Characters() {
         let _51CharactersMessage = String(repeating: "a", count: 51)
-        let firstSplitMessage = "1/2 " + String(repeating: "a", count: 46)
-        let secondSplitMessage = "2/2 " + String(repeating: "a", count: 5)
-        XCTAssert(splitMessage(message: _51CharactersMessage) == [firstSplitMessage, secondSplitMessage], "Split message with 51 characters")
-        
-        let _9SplitsMessage = String(repeating: "a", count: 46 * 9)
-        var _9Splits = Array(repeatElement(String(repeating: "a", count: 46), count: 9))
-        _9Splits = _9Splits.enumerated().map { (index, element) -> String in
-            return "\(index + 1)/\(_9Splits.count) " + element
+        let wordLongerThan50CharactersExpectation = expectation(description: "Passed test cannot split words longer than 50 characters")
+        do {
+            let _ = try String.splitMessage(message: _51CharactersMessage)
+        } catch {
+            wordLongerThan50CharactersExpectation.fulfill()
         }
-        XCTAssert(splitMessage(message: _9SplitsMessage) == _9Splits, "Split message with 9 splits, 46 characters each")
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testSplitMessageGreaterThan9Splits() {
-        let _10SplitsMessage = String(repeating: "a", count: 46 * 9 + 1)
-        var _10Splits = Array(repeatElement(String(repeating: "a", count: 45), count: 9))
-        _10Splits.append(String(repeating: "a", count: 10))
-        _10Splits = _10Splits.enumerated().map { (index, element) -> String in
-            return "\(index + 1)/\(_10Splits.count) " + element
-        }
-        XCTAssert(splitMessage(message: _10SplitsMessage) == _10Splits, "Split message with 10 splits, 45 characters each and last one is 10 characters")
+    func testSplitMessageGreaterThan50Characters() {
+        var message = "I can't believe Tweeter now supports chunking my messages, so I don't have to do it myself."
+        var splitMessages = [
+            "1/2 I can't believe Tweeter now supports chunking",
+            "2/2 my messages, so I don't have to do it myself."
+        ]
+        XCTAssert(splitMessage(message: message) == splitMessages, "Split message with white space at 46th chracter")
         
-        let _99SplitsMessage = String(repeating: "a", count: 45 * 9 + 44 * 90)
-        var _99Splits = Array(repeatElement(String(repeating: "a", count: 45), count: 9))
-        _99Splits += Array(repeatElement(String(repeating: "a", count: 44), count: 90))
-        _99Splits = _99Splits.enumerated().map { (index, element) -> String in
-            return "\(index + 1)/\(_99Splits.count) " + element
-        }
-        XCTAssert(splitMessage(message: _99SplitsMessage) == _99Splits, "Split message with 99 splits")
-        
-        let _102SplitsMessage = String(repeating: "a", count: 45 * 9 + 44 * 90 + 1)
-        var _102Splits = Array(repeatElement(String(repeating: "a", count: 44), count: 9))
-        _102Splits += Array(repeatElement(String(repeating: "a", count: 43), count: 90))
-        _102Splits += Array(repeatElement(String(repeating: "a", count: 42), count: 2))
-        _102Splits.append(String(repeating: "a", count: 16))
-        _102Splits = _102Splits.enumerated().map { (index, element) -> String in
-            return "\(index + 1)/\(_102Splits.count) " + element
-        }
-        XCTAssert(splitMessage(message: _102SplitsMessage) == _102Splits, "Split message with > 100 splits")
+        message = "This is a test which whitespace character fell at 47th character."
+        splitMessages = [
+            "1/2 This is a test which whitespace character fell",
+            "2/2 at 47th character."
+        ]
+        XCTAssert(splitMessage(message: message) == splitMessages, "Split message with white space at 47th chracter")
+
+        message = "This is a test for longer character which is longer than 50 characters."
+        splitMessages = [
+            "1/2 This is a test for longer character which is",
+            "2/2 longer than 50 characters."
+        ]
+        XCTAssert(splitMessage(message: message) == splitMessages, "Split message with characters at position 46th and 47th")
     }
     
 }
