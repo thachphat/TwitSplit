@@ -15,7 +15,7 @@ let MySenderId = "Phat"
 class PostMessageViewController: JSQMessagesViewController {
     
     let realm = try! Realm()
-
+    
     var messages = [JSQMessage]()
     
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -39,19 +39,24 @@ class PostMessageViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        let splittedMessages = String.splitMessage(message: text)
-        for message in splittedMessages {
-            let myMessage = Message()
-            myMessage.senderId = senderId
-            myMessage.displayName = senderId
-            myMessage.text = message
-            try! realm.write {
-                realm.add(myMessage)
+        if let splittedMessages = try? String.splitMessage(message: text) {
+            for message in splittedMessages {
+                let myMessage = Message()
+                myMessage.senderId = senderId
+                myMessage.displayName = senderId
+                myMessage.text = message
+                try! realm.write {
+                    realm.add(myMessage)
+                }
+                self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: message)!)
             }
-            self.messages.append(JSQMessage(senderId: senderId, displayName: senderId, text: message)!)
+            self.finishSendingMessage(animated: true)
+            self.collectionView?.reloadData()
+        } else {
+            let alertController = UIAlertController(title: "Post message error", message: "There is at least a word longer than \(String.messageMaxLength) characters", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
         }
-        self.finishSendingMessage(animated: true)
-        self.collectionView?.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

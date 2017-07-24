@@ -8,13 +8,22 @@
 
 import Foundation
 
+enum SplitMessageError: Error {
+    case cannotSplitMessage
+}
+
 extension String {
     
     static let messageMaxLength = 50
     
-    static func splitMessage(message: String) -> [String] {
+    static func splitMessage(message: String) throws -> [String] {
         if message.characters.count <= messageMaxLength {
             return [message]
+        }
+        
+        let words = message.components(separatedBy: " ")
+        if words.first(where: { $0.characters.count > messageMaxLength }) != nil {
+            throw SplitMessageError.cannotSplitMessage
         }
         
         let maxPartsDigitCount = findMaxPartsDigitCount(message: message, length: messageMaxLength)
